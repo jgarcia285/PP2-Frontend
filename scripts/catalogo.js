@@ -31,6 +31,37 @@ const cargarDatos = async () => {
 
 }
 
+const capitalizar = (string) => {
+    return string[0].toUpperCase() + string.slice(1).toLowerCase();
+}
+
+const cargarCategorias = async () => {
+
+    const HTMLResponse = document.querySelector('#categories');
+
+    try {
+
+        fetch("https://hnktech.herokuapp.com/api/category")
+            .then(response => response.json())
+            .then((res) => {
+                const template = res.categories.map((category) =>
+                (`  <button type="button" class="btn btn-outline-primary" id='${category.name}' onclick="filtrarCategoria('${category.name}')">
+                        ${capitalizar(category.name)}
+                    </button>
+                    `))
+
+                HTMLResponse.innerHTML += template.join('');
+
+                document.querySelector('#TODOS').style.display = "initial";
+
+            })
+
+    } catch (err) {
+        console.log(err);
+    }
+
+}
+
 const filtrarCategoria = (c) => {
     let contenedor = document.querySelector('#catalogue');
     let productos = contenedor.querySelectorAll('span');
@@ -58,3 +89,4 @@ const mostrarTodo = () => {
 }
 
 cargarDatos();
+cargarCategorias();

@@ -71,3 +71,7 @@ color: #fff;
 #navbar02, #navbar01 {
     display: none;
 }
+
+#TODOS {
+    display: none;
+}
