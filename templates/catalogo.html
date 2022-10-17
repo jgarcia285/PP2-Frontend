@@ -15,22 +15,21 @@
 
     <header class="navbar py-2 bg-light border-bottom">
         <div class="container-fluid d-flex flex-wrap justify-content-between">
-            <a class="navbar-brand fs-3 text-primary col-lg-auto me-lg-auto mb-2 mb-md-0" href="../index.html">HNK Tech</a>
+            <a class="navbar-brand fs-3 text-primary col-lg-auto me-lg-auto mb-2 mb-md-0" href="../index.html">HNK
+                Tech</a>
 
             <div id="navbar01">
                 <ul class="nav text-end">
                     <li class="nav-item"><a href="login.html" class="nav-link link-dark px-2">Iniciar
                             sesion</a></li>
-                    <li class="nav-item"><a href="registro.html"
-                            class="nav-link link-dark px-2">Registrarse</a></li>
+                    <li class="nav-item"><a href="registro.html" class="nav-link link-dark px-2">Registrarse</a></li>
                 </ul>
             </div>
 
 
             <div id="navbar02">
                 <ul class="nav text-end">
-                    <li class="nav-item"><a href="config.html"
-                            class="nav-link link-dark px-2">Configuracion</a></li>
+                    <li class="nav-item"><a href="config.html" class="nav-link link-dark px-2">Configuracion</a></li>
                     <li class="nav-item" id="logout"><a href="#" class="nav-link link-dark px-2">Cerrar sesion</a></li>
                 </ul>
             </div>
@@ -67,9 +66,77 @@
     <main>
 
         <h1 class="text-center text-primary">Catalogo de productos</h3><br>
+
+            <!-- Logica de admin -->
+            <div class="pb-4 text-center container">
+                <button data-bs-toggle="collapse" data-bs-target="#newProductFormCollapse"
+                    class="btn btn-primary mb-2 colapsar">Agregar
+                    producto</button>
+                <button data-bs-toggle="collapse" data-bs-target="#newCategoryFormCollapse"
+                    class="btn btn-primary mb-2 colapsar">Agregar
+                    categoria</button>
+
+
+                <div id="newProductFormCollapse" class="collapse">
+                    <form id="newProductForm" method="post">
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="nameProduct" name="nameProduct"
+                                placeholder="Nombre del producto">
+                            <label for="nameProduct">Nombre</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="prize" name="prize"
+                                placeholder="Precio del producto">
+                            <label for="prize">Precio</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="category" name="category"
+                                placeholder="Categoria">
+                            <label for="category">Categoria</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="stock" name="stock"
+                                placeholder="Stock del producto">
+                            <label for="stock">Stock</label>
+                        </div>
+
+
+
+                        <button class="w-100 btn btn-lg btn-primary mb-3" id="addProduct" type="submit">Agregar
+                            producto</button>
+                    </form>
+                </div>
+
+                <div id="newCategoryFormCollapse" class="collapse">
+                    <form id="newProductForm" method="post">
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="nameCategory" name="nameCategory"
+                                placeholder="Nombre de la categoria">
+                            <label for="nameCategory">Nombre</label>
+                        </div>
+
+                        <button class="w-100 btn btn-lg btn-primary" id="addCategory" type="submit">Agregar
+                            categoria</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Subir/cambiar imagen de producto
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Default file input example</label>
+                <input class="form-control" type="file" id="formFile">
+              </div>
+            -->
+
             <div class="text-black text-center">
                 <ul class="list-unstyled" id="categories">
-                    <button type="button" class="btn btn-outline-primary" id="TODOS" onclick="mostrarTodo()">Todos los productos</button>
+                    <button type="button" class="btn btn-outline-primary" id="TODOS" onclick="mostrarTodo()">Todos los
+                        productos</button>
                 </ul>
             </div>
             <div class="container-fluid fs-5">

@@ -4,6 +4,7 @@ const signIn = () => {
         name: document.querySelector('#name'),
         email: document.querySelector('#email'),
         pass: document.querySelector('#pass'),
+
         submit: document.querySelector('#signin')
     }
 

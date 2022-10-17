@@ -88,5 +88,93 @@ const mostrarTodo = () => {
 
 }
 
+const agregarProducto = () => {
+    const form = {
+        name: document.querySelector('#nameProduct'),
+        prize: document.querySelector('#prize'),
+        category: document.querySelector('#category'),
+        stock: document.querySelector('#stock'),
+
+        submit: document.querySelector('#addProduct')
+    }
+
+    const API_URL = "https://hnktech.herokuapp.com/api/products";
+
+    let button = form.submit.addEventListener("click", (e) => {
+
+        e.preventDefault();
+
+        jwt = sessionStorage.getItem('jwt');
+
+        fetch(API_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                xtoken: jwt
+            },
+            body: JSON.stringify({
+                name: form.name.value,
+                prize: form.prize.value,
+                category: form.category.value,
+                stock: form.stock.value
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+
+                console.log('Producto agregado: ');
+                console.log(data);
+
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    })
+}
+
+const agregarCategoria = () => {
+
+    const name = document.querySelector('#nameCategory')
+
+    const submit = document.querySelector('#addCategory')
+
+    const API_URL = "https://hnktech.herokuapp.com/api/category";
+
+    let button = submit.addEventListener("click", (e) => {
+
+        e.preventDefault();
+
+        const jwt = sessionStorage.getItem('jwt');
+
+        console.log(jwt);
+
+        fetch(API_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'xtoken': jwt
+            },
+            body: JSON.stringify({
+                name: name.value
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+
+                console.log('Categoria agregada: ');
+                console.log(name.value)
+                console.log(data);
+
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    })
+
+
+}
+
 cargarDatos();
 cargarCategorias();
+agregarProducto();
+agregarCategoria();

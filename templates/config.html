@@ -64,32 +64,39 @@
 
     <div class="container-fluid">
       <h3 class="text-center text-primary">Informacion personal</h3>
-      <form class="ms-3">
-        <div class="mb-3 ">
-          <label for="nombre" class="form-label">Nombre:</label>
-          <input type="text" class="form-control" placeholder="Usuario">
+      <div class="container border border-primary mb-2">
+        <ul class="list-unstyled text-center fs-5" id="infoUser">
+        </ul>
+      </div>
+
+      <div class="container text-center">
+        <button data-bs-toggle="collapse" data-bs-target="#editInfo" class="btn btn-primary mb-2">Editar
+          informacion</button>
+
+        <div id="editInfo" class="collapse">
+          <form id="editInfoForm" method="put">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="newName" name="newName" placeholder="Nombre">
+              <label for="newName">Nombre</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="newEmail" name="newEmail" placeholder="Email">
+              <label for="newEmail">Email</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="newPass" name="newPass" placeholder="Contraseña">
+              <label for="newPass">Contraseña</label>
+            </div>
+
+            <button class="w-100 btn btn-lg btn-primary" id="newData" type="submit">Editar</button>
+          </form>
         </div>
 
-        <div class="mb-3 ">
-          <label for="apellido" class="form-label">Apellido:</label>
-          <input type="text" class="form-control" placeholder="Test">
-        </div>
 
-        <div class="mb-3 ">
-          <label for="telefono" class="form-label">Correo electronico:</label>
-          <input type="email" class="form-control" placeholder="user@test.com">
-        </div>
+      </div>
 
-        <div class="mb-3 ">
-          <label for="contraseña" class="form-label">Contraseña:</label>
-          <input type="password" class="form-control" placeholder="****">
-        </div>
-
-        <div class="col-auto text-center">
-          <button class="btn btn-lg btn-primary red" type="submit">Guardar cambios</button></a>
-          <a class="btn btn-lg btn-primary red" href="index.html">Cancelar</a></a>
-        </div>
-      </form>
 
       <div class="text-end pt-5">
         <button class="btn btn-lg btn-danger red" type="button">Eliminar cuenta</button></a>
@@ -100,7 +107,7 @@
 
   </main>
 
-  <footer class="d-flex flex-wrap justify-content-between align-items-end py-3 border-top bg-primary fixed-bottom">
+  <footer class="d-flex flex-wrap justify-content-between align-items-end py-3 border-top bg-primary">
     <div>
       <a href="nosotros.html" class="nav-link fs-4 text-light">Quienes Somos</a>
       <a href="legales.html" class="nav-link fs-4 text-light">Terminos y Condiciones</a>
@@ -121,6 +128,7 @@
     crossorigin="anonymous"></script>
   <script src="../scripts/render.js"></script>
   <script src="../scripts/logout.js"></script>
+  <script src="../scripts/config.js"></script>
 
 </body>
 

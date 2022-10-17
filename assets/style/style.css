@@ -75,3 +75,7 @@ color: #fff;
 #TODOS {
     display: none;
 }
+
+.colapsar {
+    display: initial;
+}
