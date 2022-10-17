@@ -1,0 +1,73 @@
+.fa {
+    padding: 5px;
+    font-size: 30px;
+    width: 40px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 100%;
+}
+
+.fa-instagram:hover {
+    color:#fff;
+}
+
+.fa-facebook {
+    background: #fff;
+    color: #0275d8;
+}
+
+.fa-instagram {
+background: radial-gradient(
+circle at 33% 100%,
+#fed373 4%,
+#f15245 30%,
+#d92e7f 62%,
+#9b36b7 85%,
+#515ecf
+    );
+color: #fff;
+}
+
+.productos{
+    text-decoration: none;
+    color: #000;
+}
+
+.productos:hover{
+    color: #000;
+}
+
+.btn:focus {
+    background-color: #0275d8;
+    color: #fff;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    box-shadow: -2px -1px 25px -4px #000;
+    -webkit-box-shadow: -2px -1px 25px -4px #000;
+    -moz-box-shadow: -2px -1px 25px -4px #000;
+    transition: 0.5s;
+}
+
+.info:hover {
+    background-color: #fff;
+    color: #0275d8;
+}
+
+.info:focus {
+    background-color: #fff;
+    color: #0275d8;
+}
+
+.red:focus {
+    background-color: #df4759;
+    color: #fff;
+}
+
+#navbar02, #navbar01 {
+    display: none;
+}

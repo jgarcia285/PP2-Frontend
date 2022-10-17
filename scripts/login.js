@@ -1,0 +1,51 @@
+let autenticated = localStorage.getItem("auth")
+
+const login = () => {
+
+    const form = {
+        email: document.querySelector('#email'),
+        pass: document.querySelector('#pass'),
+        submit: document.querySelector('#login')
+    }
+
+    const API_URL = "https://hnktech.herokuapp.com/api/auth/login";
+
+    let button = form.submit.addEventListener("click", (e) => {
+
+        e.preventDefault();
+
+        fetch(API_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: form.email.value,
+                pass: form.pass.value
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+
+                const roleUser = data.user.role
+                const jwt = data.token;
+
+                sessionStorage.setItem("jwt", jwt);
+                sessionStorage.setItem("rol", roleUser);
+
+                window.location.href = "file:///G:/PP/Frontend/index.html"
+
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+
+        autenticated = true;
+        sessionStorage.setItem("auth", autenticated);
+
+    })
+
+
+}
+
+login();

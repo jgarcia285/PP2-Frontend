@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <title>HNK Tech</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../estilos.css">
+</head>
+<body>
+
+  <header class="navbar py-2 bg-light border-bottom">
+    <div class="container-fluid d-flex flex-wrap justify-content-center">
+      <a class="navbar-brand fs-3 text-primary col-lg-auto me-lg-auto mb-2 mb-md-0" href="../templates/index.html">HNK Tech</a>
+        <form class="nav col-12 col-lg-auto me-lg-auto mb-3 mb-lg-0 me-lg-3">
+            <input type="search" class="form-control form-control-dark" placeholder="Buscar productos..." aria-label="Search">
+        </form>
+    <ul class="nav text-end">
+        <li class="nav-item"><a href="../templates/login.html" class="nav-link link-dark px-2">Iniciar sesion</a></li>
+        <li class="nav-item"><a href="../templates/registro.html" class="nav-link link-dark px-2">Registrarse</a></li>
+      </ul>
+    </div>
+</header>
+  <nav class="py-3 mb-4 border-bottom bg-primary">
+    <div class="container-fluid d-flex flex-wrap justify-content-between">
+        <ul class="nav me-auto mb-2 mb-lg-0 fs-4">
+            <li class="nav-item">
+                <a class="nav-link text-light" href="../templates/index.html">Inicio</a>
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link text-light" href="../templates/catalogo.html" role="button">
+                  Catalogo
+                </a>
+              </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="../templates/contacto.html">Contacto</a>
+          </li>
+        </ul>
+        <ul class="nav">
+        <li class="nav-item text-end">
+          <a class="nav-link text-light fs-4" href="../templates/carrito.html">Carrito <img src="../imagenes/carrito.png" alt="carrito" class="img-fluid"></a>
+        </li>
+      </ul>
+    
+      </div>
+</nav>
+
+      <main>
+        <div class="container row">
+            <div class="col-6 col-md-7 col-sm-6">
+                <img class="img-fluid" src="../imagenes/1060.jpg" alt="1060">
+            </div>
+            <div class="col fs-2">
+                <p>Placa de video Nvidia GeForce GTX 1060</p>
+                <p>$89.999</p>
+                <button class="btn btn-lg btn-primary position-relative" type="submit">Añadir al carrito</button>
+            </div>
+            <div class="fs-4">
+                <h2>Descripcion</h2>
+                <ul>
+                    <li><p>Fabricante: Nvidia</p></li>
+                    <li><p>Marca: Gigabyte</p></li>
+                    <li><p>Serie: GeForce 10 Series</p></li>
+                    <li><p>Modelo: GTX 1060</p></li>
+                    <li><p>Version: GV-N1060WF2OC-6GD 2.0</p></li>
+                    <li><p>Tamaño de la memoria: 6GB</p></li>
+                    <li><p>Conectividad: DisplayPort,DL-DVI-D,HDMI</p></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="fs-2 mx-3">Articulos que pueden interesarte: </p><br>
+        <div class="row text-center">
+          <div class="card border-2 col-6 col-md-3 col-sm-3">
+            <a class="productos text-black" href="1050ti.html">Placa de video Nvidia GTX 1050 Ti</a>
+            <a class="productos text-black" href="1050ti.html">$49.999</a>
+            <a href="1050ti.html"><img class="img-fluid" src="../imagenes/1050ti.jpg" alt="Placa de video Nvidia GTX 1050 Ti"></a>
+        </div>
+        
+        <div class="card border-2 col-6 col-md-3 col-sm-3">
+          <a class="productos text-black" href="1650.html">Placa de video Nvidia GeForce GTX 1650</a>
+          <a class="productos text-black" href="1650.html">$64.999</a>
+          <a href="1650.html"><img class="img-fluid" src="../imagenes/1650.jpg" alt="Placa de video Nvidia GeForce GTX 1650"></a>
+        </div>
+        
+        <div class="card border-2 col-6 col-md-3 col-sm-3">
+          <a class="productos text-black" href="a320m-k.html">Placa Madre Asus Prime A320m-k</a>
+          <a class="productos text-black" href="a320m-k.html">$6.900</a>
+          <a href="a320m-k.html"><img class="img-fluid" src="../imagenes/a320m-k.jpg" alt="Placa Madre Asus Prime A320m-k"></a>
+        </div>
+
+        
+        <div class="card border-2 col-6 col-md-3 col-sm-3">
+          <a class="productos text-black" href="ram_kingston.html">Memoria RAM DDR4 8GB Kingston</a>
+          <a class="productos text-black" href="ram_kingston.html">$5.400</a>
+          <a href="ram_kingston.html"><img class="img-fluid" src="../imagenes/ram_kingston.jpg" alt="Memoria RAM DDR4 8GB Kingston"></a>
+        </div>
+      </div>
+      </main>
+
+      <footer class="d-flex flex-wrap justify-content-between align-items-end py-3 border-top bg-primary">
+        <div>
+        <a href="../templates/nosotros.html" class="nav-link fs-4 text-light">Quienes Somos</a>
+        <a href="../templates/legales.html" class="nav-link fs-4 text-light">Terminos y Condiciones</a>
+        </div>
+
+        <ul class="nav align-items-center">
+            <li class="nav-item"><p class="mb-2 fs-4 px-2 text-light">Redes Sociales</p></li>
+            <li class="nav-item"><a href="#" class="fa fa-instagram"></a></li>
+            <li class="nav-item"><a href="#" class="fa fa-facebook"></a></li>
+        </ul>
+</footer>
+</body>
+</html>

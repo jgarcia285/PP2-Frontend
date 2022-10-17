@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <title>HNK Tech</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../estilos.css">
+</head>
+<body>
+
+  <header class="navbar py-2 bg-light border-bottom">
+    <div class="container-fluid d-flex flex-wrap justify-content-center">
+      <a class="navbar-brand fs-3 text-primary col-lg-auto me-lg-auto mb-2 mb-md-0" href="../templates/index.html">HNK Tech</a>
+        <form class="nav col-12 col-lg-auto me-lg-auto mb-3 mb-lg-0 me-lg-3">
+            <input type="search" class="form-control form-control-dark" placeholder="Buscar productos..." aria-label="Search">
+        </form>
+    <ul class="nav text-end">
+        <li class="nav-item"><a href="../templates/login.html" class="nav-link link-dark px-2">Iniciar sesion</a></li>
+        <li class="nav-item"><a href="../templates/registro.html" class="nav-link link-dark px-2">Registrarse</a></li>
+      </ul>
+    </div>
+</header>
+  <nav class="py-3 mb-4 border-bottom bg-primary">
+    <div class="container-fluid d-flex flex-wrap justify-content-between">
+        <ul class="nav me-auto mb-2 mb-lg-0 fs-4">
+            <li class="nav-item">
+                <a class="nav-link text-light" href="../templates/index.html">Inicio</a>
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link text-light" href="../templates/catalogo.html" role="button">
+                  Catalogo
+                </a>
+              </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="../templates/contacto.html">Contacto</a>
+          </li>
+        </ul>
+        <ul class="nav">
+        <li class="nav-item text-end">
+          <a class="nav-link text-light fs-4" href="../templates/carrito.html">Carrito <img src="../imagenes/carrito.png" alt="carrito" class="img-fluid"></a>
+        </li>
+      </ul>
+    
+      </div>
+</nav>
+
+      <main>
+        <div class="container row">
+            <div class="col-6 col-md-7 col-sm-6">
+                <img class="img-fluid" src="../imagenes/i5-9600K.jpg" alt="i5-9600K">
+            </div>
+            <div class="col fs-2">
+                <p>Procesador Intel Core i5-9600K</p>
+                <p>$29.999</p>
+                <button class="btn btn-lg btn-primary position-relative" type="submit">Añadir al carrito</button>
+            </div>
+            <div class="fs-4">
+                <h2>Descripcion</h2>
+                <ul>
+                    <li><p>Marca: Intel</p></li>
+                    <li><p>Linea: Core i5</p></li>
+                    <li><p>Modelo: i5-9600K</p></li>
+                    <li><p>Modelo alfanumerico: BX80684I59600K</p></li>
+                    <li><p>Tipos de memoria RAM soportadas: DDR4</p></li>
+                    <li><p>Frecuencia minima de reloj: 3.7 GHz</p></li>
+                    <li><p>Frecuencia maxima de reloj: 4.6 GHz</p></li>
+                    <li><p>Cantidad de núcleos de CPU: 6</p></li>
+                    <li><p>Cantidad de hilos de CPU: 6</p></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="fs-2 mx-3">Articulos que pueden interesarte: </p><br>
+        <div class="row text-center">
+          <div class="card border-2 col-6 col-md-3 col-sm-3">
+            <a class="productos text-black" href="i7-9700K.html">Procesador Intel Core i7-9700K</a>
+            <a class="productos text-black" href="i7-9700K.html">$42.999</a>
+            <a href="i7-9700K.html"><img class="img-fluid" src="../imagenes/i7-9700K.jpg" alt="Procesador Intel Core i7-9700K"></a>
+        </div>
+        
+        <div class="card border-2 col-6 col-md-3 col-sm-3">
+          <a class="productos text-black" href="ryzen-5600x.html">Procesador AMD Ryzen 5 5600X</a>
+          <a class="productos text-black" href="ryzen-5600x.html">$42.999</a>
+          <a href="ryzen-5600x.html"><img class="img-fluid" src="../imagenes/ryzen-5600x.jpg" alt="Procesador AMD Ryzen 5 5600X"></a>
+        </div>
+        
+        <div class="card border-2 col-6 col-md-3 col-sm-3">
+          <a class="productos text-black" href="i3_9100.html">Procesador Intel Core i3-9100</a>
+          <a class="productos text-black" href="i3_9100.html">$21.999</a>
+          <a href="i3_9100.html"><img class="img-fluid" src="../imagenes/i3-9100.jpg" alt="Procesador Intel Core i3-9100"></a>
+        </div>
+
+        <div class="card border-2 col-6 col-md-3 col-sm-3">
+          <a class="productos text-black" href="ram_kingston.html">Memoria RAM DDR4 8GB Kingston</a>
+          <a class="productos text-black" href="ram_kingston.html">$5.400</a>
+          <a href="ram_kingston.html"><img class="img-fluid" src="../imagenes/ram_kingston.jpg" alt="Memoria RAM DDR4 8GB Kingston"></a>
+        </div>
+      </div>
+      </main>
+
+      <footer class="d-flex flex-wrap justify-content-between align-items-end py-3 border-top bg-primary">
+        <div>
+        <a href="../templates/nosotros.html" class="nav-link fs-4 text-light">Quienes Somos</a>
+        <a href="../templates/legales.html" class="nav-link fs-4 text-light">Terminos y Condiciones</a>
+        </div>
+
+        <ul class="nav align-items-center">
+            <li class="nav-item"><p class="mb-2 fs-4 px-2 text-light">Redes Sociales</p></li>
+            <li class="nav-item"><a href="#" class="fa fa-instagram"></a></li>
+            <li class="nav-item"><a href="#" class="fa fa-facebook"></a></li>
+        </ul>
+</footer>
+</body>
+</html>
