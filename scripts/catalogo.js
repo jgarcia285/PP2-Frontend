@@ -4,11 +4,45 @@ const cargarDatos = async () => {
 
     try {
 
-        fetch("https://hnktech.herokuapp.com/api/products")
-            .then(response => response.json())
-            .then((res) => {
-                const template = res.products.map((product) =>
-                (`<span class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-3" id='${product.category.name}'>
+        let rolAlmacenado = sessionStorage.getItem("rol");
+
+        if (rolAlmacenado === null) {
+            sessionStorage.setItem("rol", 'USER_ROLE');
+        }
+
+        if (rolAlmacenado === 'ADMIN_ROLE') {
+
+            document.querySelector('#addNewProductButton').style.display = 'initial';
+            document.querySelector('#addNewCategoryButton').style.display = 'initial';
+
+            fetch("https://hnktech.herokuapp.com/api/products")
+                .then(response => response.json())
+                .then((res) => {
+                    const template = res.products.map((product) =>
+                    (`<span class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-3" id='${product.category.name}'>
+                        <div class="card border-2 text-black">
+                            <a href="#" class="productos">
+                                <div>${product.name}</div>
+                                <div>$${product.prize}</div>
+                                <div>Stock: ${product.stock}</div>
+                                <div><img src="${product.img}" class="img-fluid" alt="${product.name}"></img></div>
+                            </a>
+                            <button type="button" class="btn btn-outline-primary">Editar informacion</button>
+                            <button type="button" class="btn btn-outline-primary">Agregar imagen</button>
+                        </div>
+                    </span>
+                    `))
+
+                    HTMLResponse.innerHTML += template.join('');
+
+                })
+        } else {
+
+            fetch("https://hnktech.herokuapp.com/api/products")
+                .then(response => response.json())
+                .then((res) => {
+                    const template = res.products.map((product) =>
+                    (`<span class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-3" id='${product.category.name}'>
                         <div class="card border-2 text-black">
                             <a href="#" class="productos">
                                 <div>${product.name}</div>
@@ -21,9 +55,10 @@ const cargarDatos = async () => {
                     </span>
                     `))
 
-                HTMLResponse.innerHTML += template.join('');
+                    HTMLResponse.innerHTML += template.join('');
 
-            })
+                })
+        }
 
     } catch (err) {
         console.log(err);
@@ -98,13 +133,15 @@ const agregarProducto = () => {
         submit: document.querySelector('#addProduct')
     }
 
-    const API_URL = "https://hnktech.herokuapp.com/api/products";
+    const API_URL = "http://localhost:8080/api/products";
 
     let button = form.submit.addEventListener("click", (e) => {
 
         e.preventDefault();
 
-        jwt = sessionStorage.getItem('jwt');
+        const jwt = sessionStorage.getItem('jwt');
+
+        console.log(jwt)
 
         fetch(API_URL, {
             method: 'POST',
@@ -116,18 +153,19 @@ const agregarProducto = () => {
                 name: form.name.value,
                 prize: form.prize.value,
                 category: form.category.value,
-                stock: form.stock.value
+                stock: form.stock.value,
+                img: 'https://res.cloudinary.com/dkfd0chui/image/upload/v1666065995/svmb7pqhbvjkzwkwumch.jpg'
             })
         })
             .then(response => response.json())
             .then(data => {
 
-                console.log('Producto agregado: ');
-                console.log(data);
+                window.location.href = "file:///G:/PP/Frontend/templates/catalogo.html"
 
             })
             .catch((err) => {
                 console.log(err);
+
             })
     })
 }
@@ -145,8 +183,6 @@ const agregarCategoria = () => {
         e.preventDefault();
 
         const jwt = sessionStorage.getItem('jwt');
-
-        console.log(jwt);
 
         fetch(API_URL, {
             method: 'POST',
