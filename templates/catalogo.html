@@ -67,13 +67,15 @@
 
         <h1 class="text-center text-primary">Catalogo de productos</h3><br>
 
-            <!-- Logica de admin -->
             <div class="pb-4 text-center container">
                 <button data-bs-toggle="collapse" data-bs-target="#newProductFormCollapse"
                     class="btn btn-primary mb-2 colapsar" id="addNewProductButton">Agregar
                     producto</button>
                 <button data-bs-toggle="collapse" data-bs-target="#newCategoryFormCollapse"
                     class="btn btn-primary mb-2 colapsar" id="addNewCategoryButton">Agregar
+                    categoria</button>
+                <button data-bs-toggle="collapse" data-bs-target="#deleteCategoryFormCollapse"
+                    class="btn btn-danger mb-2 colapsar botonRojo" id="deleteCategory">Eliminar
                     categoria</button>
 
 
@@ -106,7 +108,7 @@
 
 
 
-                        <button class="w-100 btn btn-lg btn-primary mb-3" id="addProduct" type="submit">Agregar
+                        <button class="w-50 btn btn-lg btn-primary mb-3" id="addProduct" type="submit">Agregar
                             producto</button>
                     </form>
                 </div>
@@ -120,8 +122,21 @@
                             <label for="nameCategory">Nombre</label>
                         </div>
 
-                        <button class="w-100 btn btn-lg btn-primary" id="addCategory" type="submit">Agregar
+                        <button class="w-50 btn btn-lg btn-primary" id="addCategory" type="submit">Agregar
                             categoria</button>
+                    </form>
+                </div>
+
+                <div id="deleteCategoryFormCollapse" class="collapse">
+                    <form id="deleteCategoryForm" method="delete">
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="nameCategory" name="nameCategory"
+                                placeholder="Nombre de la categoria">
+                            <label for="nameCategory">Nombre</label>
+                        </div>
+
+                        <button class="w-50 btn btn-lg btn-danger botonRojo" id="addCategory" type="submit">Eliminar </button>
                     </form>
                 </div>
             </div>

@@ -28,8 +28,7 @@ const signIn = () => {
             .then(response => response.json())
             .then(data => {
 
-                console.log('Usuario creado: ');
-                console.log(data);
+                window.location.href = "file:///G:/PP/Frontend/templates/login.html";
 
             })
             .catch((err) => {

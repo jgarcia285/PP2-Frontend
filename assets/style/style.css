@@ -79,3 +79,7 @@ color: #fff;
 .colapsar {
     display: none;
 }
+
+.botonRojo:focus {
+    background-color: #dc3545;
+}

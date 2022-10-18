@@ -75,22 +75,25 @@
 
         <div id="editInfo" class="collapse">
           <form id="editInfoForm" method="put">
-            <div class="form-floating mb-3">
+
+            <div class="form-floating mb-3 d-flex">
               <input type="text" class="form-control" id="newName" name="newName" placeholder="Nombre">
               <label for="newName">Nombre</label>
+              <button class="w-25 btn btn-lg btn-primary" id="editName" type="submit">Editar</button>
             </div>
 
-            <div class="form-floating mb-3">
+            <div class="form-floating mb-3 d-flex">
               <input type="email" class="form-control" id="newEmail" name="newEmail" placeholder="Email">
               <label for="newEmail">Email</label>
+              <button class="w-25 btn btn-lg btn-primary" id="editEmail" type="submit">Editar</button>
             </div>
 
-            <div class="form-floating mb-3">
+            <div class="form-floating mb-3 d-flex">
               <input type="password" class="form-control" id="newPass" name="newPass" placeholder="Contraseña">
               <label for="newPass">Contraseña</label>
+              <button class="w-25 btn btn-lg btn-primary" id="editPass" type="submit">Editar</button>
             </div>
 
-            <button class="w-100 btn btn-lg btn-primary" id="newData" type="submit">Editar</button>
           </form>
         </div>
 
@@ -98,8 +101,8 @@
       </div>
 
 
-      <div class="text-end pt-5">
-        <button class="btn btn-lg btn-danger red" type="button">Eliminar cuenta</button></a>
+      <div class="text-end m-3">
+        <button class="btn btn-lg btn-danger red" type="button" id="deleteAcc">Eliminar cuenta</button></a>
       </div>
 
 

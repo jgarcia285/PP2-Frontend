@@ -14,12 +14,14 @@ const cargarDatos = async () => {
 
             document.querySelector('#addNewProductButton').style.display = 'initial';
             document.querySelector('#addNewCategoryButton').style.display = 'initial';
+            document.querySelector('#deleteCategory').style.display = 'initial';
 
             fetch("https://hnktech.herokuapp.com/api/products")
                 .then(response => response.json())
                 .then((res) => {
                     const template = res.products.map((product) =>
-                    (`<span class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-3" id='${product.category.name}'>
+                    (`
+                    <span class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-3" id='${product.category.name}' data-id='${product._id}' data-name='${product.name}'>
                         <div class="card border-2 text-black">
                             <a href="#" class="productos">
                                 <div>${product.name}</div>
@@ -27,13 +29,16 @@ const cargarDatos = async () => {
                                 <div>Stock: ${product.stock}</div>
                                 <div><img src="${product.img}" class="img-fluid" alt="${product.name}"></img></div>
                             </a>
-                            <button type="button" class="btn btn-outline-primary">Editar informacion</button>
-                            <button type="button" class="btn btn-outline-primary">Agregar imagen</button>
+                            <button type="button" class="btn btn-outline-primary" id="editInfoProd" onclick="editarInfo('${product.name}')">Editar informacion</button>
+                            <button type="button" class="btn btn-outline-primary" id="addImageProd">Agregar imagen</button>
                         </div>
                     </span>
-                    `))
+                    `)
+                    )
 
                     HTMLResponse.innerHTML += template.join('');
+
+                    editarInfo();
 
                 })
         } else {
@@ -65,6 +70,21 @@ const cargarDatos = async () => {
     }
 
 }
+
+const editarInfo = (n) => {
+
+    let contenedor = document.querySelector('#catalogue');
+    let productos = contenedor.querySelectorAll('span')
+
+    productos.forEach(element => {
+        if (element.dataset.name === n) {
+            console.log(`ID: ${element.dataset.id}`);
+        }
+    });
+
+
+}
+
 
 const capitalizar = (string) => {
     return string[0].toUpperCase() + string.slice(1).toLowerCase();
@@ -207,8 +227,37 @@ const agregarCategoria = () => {
             })
     })
 
+}
+
+/*
+const eliminarCategoria = () => {
+
+    let submit = document.querySelector('#deleteCategory');
+
+    let button = submit.addEventListener("click", (e) => {
+
+        e.preventDefault();
+
+        fetch(`http://localhost:8080/api/users/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .catch((err) => {
+                console.log(err);
+            })
+
+        window.location.reload();
+
+    })
 
 }
+
+    eliminarCategoria();
+
+*/
 
 cargarDatos();
 cargarCategorias();

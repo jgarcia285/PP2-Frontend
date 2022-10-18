@@ -34,6 +34,7 @@ const login = () => {
                 sessionStorage.setItem("rol", roleUser);
                 sessionStorage.setItem("nameUser", data.user.name);
                 sessionStorage.setItem("emailUser", data.user.email);
+                sessionStorage.setItem("idUser", data.user.uid);
 
                 window.location.href = "file:///G:/PP/Frontend/index.html"
 
