@@ -8,8 +8,6 @@ const cargarCarrito = () => {
   let carritoAlmacenado = JSON.parse(localStorage.getItem('carrito'))
   let carritoTemplate = document.querySelector('#carritoLleno');
 
-  console.log(carritoAlmacenado.length)
-
   if (carritoAlmacenado && carritoAlmacenado.length > 0) {
 
     carritoTemplate.style.display = "block"

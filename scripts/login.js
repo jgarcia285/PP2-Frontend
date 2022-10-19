@@ -1,5 +1,3 @@
-let autenticated = localStorage.getItem("auth")
-
 const login = () => {
 
     const form = {
@@ -36,15 +34,15 @@ const login = () => {
                 sessionStorage.setItem("emailUser", data.user.email);
                 sessionStorage.setItem("idUser", data.user.uid);
 
+                autenticated = true;
+                sessionStorage.setItem("auth", autenticated);
+
                 window.location.href = "file:///G:/PP/Frontend/index.html"
 
             })
             .catch((err) => {
                 console.log(err);
             })
-
-        autenticated = true;
-        sessionStorage.setItem("auth", autenticated);
 
     })
 

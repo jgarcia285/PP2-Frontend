@@ -15,6 +15,7 @@ const logout = () => {
 
         let autenticated = false;
         sessionStorage.setItem("auth", autenticated);
+        localStorage.clear('carrito');
         window.location.href = "file:///G:/PP/Frontend/index.html"
     })
 

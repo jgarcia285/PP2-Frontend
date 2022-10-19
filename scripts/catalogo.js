@@ -157,8 +157,6 @@ const agregarCarrito = (id) => {
 
                     }
 
-                    console.log(JSON.parse(localStorage.getItem('carrito')));
-
                 }
             })
         }
