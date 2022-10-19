@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/jgarcia285/PP2-Frontend#readme",
   "dependencies": {
-    "sweetalert2": "^11.6.0",
     "toastify-js": "^1.12.0"
   }
 }

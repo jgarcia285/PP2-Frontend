@@ -27,11 +27,46 @@ const login = () => {
 
                 let error = false;
 
-                if (typeof (data) === 'object') {
-
-                    console.log('error')
+                if (form.email.value.length === 0) {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'El correo es obligatorio',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
                     error = true;
-                } if (error) {
+                } else if (!/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i.test(form.email.value)) {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'El correo no es valido',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
+                    error = true;
+
+                } else if (form.pass.value.length === 0) {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'La contraseña es obligatoria',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
+                    error = true;
+                } else if (data.msg) {
+
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Datos incorrectos',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
+
+                    console.log(data);
+
+                    error = true;
+
+                } if (!error) {
+
                     const roleUser = data.user.role
                     const jwt = data.token;
 

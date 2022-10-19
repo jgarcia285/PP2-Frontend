@@ -134,8 +134,15 @@ const agregarCarrito = (id) => {
                     let repetido = false;
 
                     if (!localStorage.getItem('carrito')) {
+
                         carritoArr.push(carrito);
                         localStorage.setItem('carrito', JSON.stringify(carritoArr));
+
+                        Toastify({
+                            text: "Producto agregado",
+                            duration: 3000
+                        }).showToast();
+
                     } else {
 
                         carritoArr = JSON.parse(localStorage.getItem('carrito'));
@@ -149,10 +156,22 @@ const agregarCarrito = (id) => {
                         });
 
                         if (!repetido) {
+
                             carritoArr.push(carrito);
                             localStorage.setItem('carrito', JSON.stringify(carritoArr));
+
+                            Toastify({
+                                text: "Producto agregado",
+                                duration: 3000
+                            }).showToast();
+
                         } else {
-                            console.log('Ese producto ya se encuentra en el carrito');
+                            Swal.fire({
+                                title: 'Error!',
+                                text: 'Ese producto ya se encuentra en el carrito',
+                                icon: 'error',
+                                confirmButtonText: 'Ok'
+                              })
                         }
 
                     }
@@ -463,6 +482,13 @@ const agregarCategoria = () => {
 
                 if (name.value) {
                     window.location.reload();
+                } else {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Debe ingresar una categoria',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                      })
                 }
             })
             .catch((err) => {
