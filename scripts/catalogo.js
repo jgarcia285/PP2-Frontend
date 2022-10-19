@@ -122,14 +122,12 @@ const agregarCarrito = (id) => {
                     let prize = product.querySelector('div a div#prizeProd').dataset.info;
                     let stock = product.querySelector('div a div#stockProd').dataset.info;
                     let image = product.querySelector('div a div#imageProd').dataset.info;
-                    let amount = 1;
 
                     let carrito = {
                         name: name,
                         prize: prize,
                         stock: stock,
-                        image: image,
-                        amount: amount
+                        image: image
                     }
 
                     let carritoArr = []
