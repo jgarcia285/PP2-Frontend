@@ -8,7 +8,7 @@ const signIn = () => {
         submit: document.querySelector('#signin')
     }
 
-    const API_URL = "https://hnktech.herokuapp.com/api/users";
+    const API_URL = "http://localhost:8080/api/users";
 
     let button = form.submit.addEventListener("click", (e) => {
 
@@ -28,11 +28,20 @@ const signIn = () => {
             .then(response => response.json())
             .then(data => {
 
-                window.location.href = "file:///G:/PP/Frontend/templates/login.html";
+                let error = false;
 
-            })
-            .catch((err) => {
-                console.log(err);
+                console.log(typeof (data));
+
+
+                if (typeof (data) === 'object') {
+                    console.log(data.errors[0].msg)
+                    error = true;
+                } if (!error) {
+
+                    window.location.href = "file:///G:/PP/Frontend/templates/login.html";
+
+                }
+
             })
     })
 }

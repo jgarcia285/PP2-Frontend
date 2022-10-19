@@ -460,7 +460,10 @@ const agregarCategoria = () => {
         })
             .then(response => response.json())
             .then(data => {
-                window.location.reload();
+
+                if (name.value) {
+                    window.location.reload();
+                }
             })
             .catch((err) => {
                 console.log(err);

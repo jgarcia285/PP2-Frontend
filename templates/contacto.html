@@ -65,23 +65,24 @@
   <main>
     <h2 class="text-center text-primary">Formulario de contacto</h2>
     <form class="ms-3">
-      <div class="mb-3 ">
-        <label for="nombre" class="form-label">Nombre:</label>
-        <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre">
+
+      <div class="form-floating mb-3 ">
+        <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
+        <label for="nombre">Nombre:</label>
       </div>
 
-      <div class="mb-3 ">
-        <label for="correo" class="form-label">Correo:</label>
-        <input type="email" class="form-control" id="correo" placeholder="Ingrese su correo electronico">
+      <div class="form-floating mb-3 ">
+        <input type="email" class="form-control" id="correo" placeholder="Correo" required>
+        <label for="correo">Correo:</label>
       </div>
 
-      <div class="mb-3 ">
-        <label for="telefono" class="form-label">Telefono:</label>
-        <input type="number" class="form-control" id="telefono" placeholder="Ingrese su telefono de contacto">
+      <div class="form-floating mb-3 ">
+        <input type="number" class="form-control" id="telefono" placeholder="Telefono">
+        <label for="telefono">Telefono:</label>
       </div>
 
       <div class="mb-3">
-        <label for="consulta" class="form-label">Consulta:</label>
+        <label for="consulta">Consulta:</label>
         <textarea class="form-control" id="consulta" rows="3"></textarea>
       </div>
 
