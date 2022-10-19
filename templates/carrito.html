@@ -59,26 +59,20 @@
     </div>
   </nav>
 
-  <main>
-    <div class="container-fluid mx-5 fs-4">
+  <main id="carritoVacio">
+    <div class="container-fluid fs-4 m-3" id="carritoLleno">
       <h3 class="text-center text-primary">Carrito de compras</h3>
       <div class="row">
-        <div class="col-8 col-md-8 col-sm-8">
+        <div class="col-10 col-sm-12 col-md-10 col-lg-12 col-xl-12">
           <div class="row">
-            <p class="col-10">Productos</p>
-            <p class="col">Subtotal</p>
+            <p class="col">Productos</p>
+            <p class="col-sm-3 col-md-1 col-2 col-lg-2 col-xl-2">Precio</p>
           </div>
-          <div class="row">
-            <img class="img-fluid col-5 col-md-3 col-sm-5" src="../assets/images/1650.jpg"
-              alt="Placa de video Nvidia GeForce GTX 1650">
-            <p class="productos text-black fs-5 col">Placa de video Nvidia GeForce GTX 1650</p>
-            <p class="col-2">$64.999</p>
+          <div class="row" id="carrito">
+
           </div>
-          <div class="row">
-            <p class="col-10">Total</p>
-            <p class="col">$64.999</p>
-          </div>
-          <a class="productos" href="catalogo.html">Agregar mas productos</a>
+
+          <a class="productos text-primary" href="catalogo.html">Agregar mas productos</a>
           <div class="mt-4">
             <a href="catalogo.html"> <button class="btn btn-lg btn-danger" type="submit">Cancelar</button></a>
             <a href="pago.html"> <button class="btn btn-lg btn-primary" type="submit">Pagar</button></a>
@@ -86,7 +80,6 @@
         </div>
       </div>
     </div>
-    <br>
   </main>
 
   <footer class="d-flex flex-wrap justify-content-between align-items-end py-3 border-top bg-primary">
@@ -108,8 +101,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
     crossorigin="anonymous"></script>
-    <script src="../scripts/render.js"></script>
-    <script src="../scripts/logout.js"></script>
+  <script src="../scripts/render.js"></script>
+  <script src="../scripts/logout.js"></script>
+  <script src="../scripts/carrito.js"></script>
 
 </body>
 

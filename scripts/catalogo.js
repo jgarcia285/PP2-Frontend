@@ -75,19 +75,21 @@ const cargarDatos = async () => {
                 })
         } else {
 
+            let i = 1;
+
             fetch("https://hnktech.herokuapp.com/api/products")
                 .then(response => response.json())
                 .then((res) => {
                     const template = res.products.map((product) =>
-                    (`<span class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-3" id='${product.category.name}'>
+                    (`<span class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-3" id='${product.category.name}' data-id="${i}">
                         <div class="card border-2 text-black">
                             <a href="#" class="productos">
-                                <div>${product.name}</div>
-                                <div>$${product.prize}</div>
-                                <div>Stock: ${product.stock}</div>
-                                <div><img src="${product.img}" class="img-fluid" alt="${product.name}"></img></div>
+                                <div id="nameProd" data-info="${product.name}">${product.name}</div>
+                                <div id="prizeProd" data-info="${product.prize}">$${product.prize}</div>
+                                <div id="stockProd" data-info="${product.stock}">Stock: ${product.stock}</div>
+                                <div id="imageProd" data-info="${product.img}"><img src="${product.img}" class="img-fluid" alt="${product.name}"></img></div>
                             </a>
-                            <button type="button" class="btn btn-outline-primary">Agregar al carrito</button>
+                            <button type="button" class="btn btn-outline-primary" id="${i}" onclick="agregarCarrito(${i++})">Agregar al carrito</button>
                         </div>
                     </span>
                     `))
@@ -100,6 +102,71 @@ const cargarDatos = async () => {
     } catch (err) {
         console.log(err);
     }
+
+}
+
+const agregarCarrito = (id) => {
+
+    let contenedor = document.querySelector('#catalogue');
+    let botones = contenedor.querySelectorAll('span div button')
+    let productos = contenedor.querySelectorAll('span')
+
+    botones.forEach(element => {
+
+        if (Number(element.id) === id) {
+
+            productos.forEach(product => {
+                if (Number(product.dataset.id) === id) {
+
+                    let name = product.querySelector('div a div#nameProd').dataset.info;
+                    let prize = product.querySelector('div a div#prizeProd').dataset.info;
+                    let stock = product.querySelector('div a div#stockProd').dataset.info;
+                    let image = product.querySelector('div a div#imageProd').dataset.info;
+                    let amount = 1;
+
+                    let carrito = {
+                        name: name,
+                        prize: prize,
+                        stock: stock,
+                        image: image,
+                        amount: amount
+                    }
+
+                    let carritoArr = []
+                    let repetido = false;
+
+                    if (!localStorage.getItem('carrito')) {
+                        carritoArr.push(carrito);
+                        localStorage.setItem('carrito', JSON.stringify(carritoArr));
+                    } else {
+
+                        carritoArr = JSON.parse(localStorage.getItem('carrito'));
+
+                        carritoArr.forEach(element => {
+
+                            if (element.name === carrito.name) {
+                                repetido = true;
+                            }
+
+                        });
+
+                        if (!repetido) {
+                            carritoArr.push(carrito);
+                            localStorage.setItem('carrito', JSON.stringify(carritoArr));
+                        } else {
+                            console.log('Ese producto ya se encuentra en el carrito');
+                        }
+
+                    }
+
+                    console.log(JSON.parse(localStorage.getItem('carrito')));
+
+                }
+            })
+        }
+
+    })
+
 
 }
 
@@ -451,7 +518,7 @@ const eliminarCategoria = (id) => {
             console.log(err);
         })
 
-    
+
 
 }
 

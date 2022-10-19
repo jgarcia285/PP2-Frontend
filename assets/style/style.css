@@ -83,3 +83,7 @@ color: #fff;
 .botonRojo:focus {
     background-color: #dc3545;
 }
+
+#carritoLleno {
+    display: none;
+}

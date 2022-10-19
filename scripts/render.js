@@ -37,10 +37,6 @@ const render = () => {
 
     validateAuth();
 
-    setInterval(() => {
-        validateAuth();
-    }, 100);
-
 }
 
 render();
