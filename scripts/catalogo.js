@@ -14,7 +14,7 @@ const cargarDatos = async () => {
 
             document.querySelector('#addNewProductButton').style.display = 'initial';
             document.querySelector('#addNewCategoryButton').style.display = 'initial';
-            document.querySelector('#deleteCategory').style.display = 'initial';
+            document.querySelector('#deleteCategoryButton').style.display = 'initial';
 
             fetch("https://hnktech.herokuapp.com/api/products")
                 .then(response => response.json())
@@ -269,8 +269,6 @@ const cambiarImagen = (n) => {
     });
 }
 
-
-
 const capitalizar = (string) => {
     return string[0].toUpperCase() + string.slice(1).toLowerCase();
 }
@@ -285,14 +283,14 @@ const cargarCategorias = async () => {
             .then(response => response.json())
             .then((res) => {
                 const template = res.categories.map((category) =>
-                (`  <button type="button" class="btn btn-outline-primary" id='${category.name}' onclick="filtrarCategoria('${category.name}')">
+                (`  <button type="button" class="btn btn-outline-primary" id='${category.name}' data-id='${category.uid}' onclick="filtrarCategoria('${category.name}')">
                         ${capitalizar(category.name)}
                     </button>
                     `))
 
                 HTMLResponse.innerHTML += template.join('');
 
-                document.querySelector('#TODOS').style.display = "initial";
+                document.querySelector('#TODOS').style.display = "initial"
 
             })
 
@@ -345,8 +343,6 @@ const agregarProducto = () => {
         e.preventDefault();
 
         const jwt = sessionStorage.getItem('jwt');
-
-        console.log(jwt)
 
         fetch(API_URL, {
             method: 'POST',
@@ -401,11 +397,7 @@ const agregarCategoria = () => {
         })
             .then(response => response.json())
             .then(data => {
-
-                console.log('Categoria agregada: ');
-                console.log(name.value)
-                console.log(data);
-
+                window.location.reload();
             })
             .catch((err) => {
                 console.log(err);
@@ -414,35 +406,55 @@ const agregarCategoria = () => {
 
 }
 
-/*
-const eliminarCategoria = () => {
+const eliminarCategoriaAux = () => {
 
-    let submit = document.querySelector('#deleteCategory');
+    let contenedor = document.querySelector('#categories');
+    let categorias = contenedor.querySelectorAll('button');
+    const categoryToDelete = document.querySelector('#nameCategoryToDelete');
+    let n = categoryToDelete.value.toUpperCase()
 
-    let button = submit.addEventListener("click", (e) => {
 
-        e.preventDefault();
+    categorias.forEach(element => {
 
-        fetch(`http://localhost:8080/api/users/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            }
+        if (element.id === n) {
+
+            let id = element.dataset.id;
+            let submit = document.querySelector('#deleteCategory');
+
+            submit.addEventListener('click', eliminarCategoria);
+            submit.myParamDelete = id;
+        }
+
+    });
+
+}
+
+const eliminarCategoria = (id) => {
+
+    id = id.currentTarget.myParamDelete
+    const jwt = sessionStorage.getItem('jwt');
+
+    const API_URL = `http://localhost:8080/api/category/${id}`
+
+
+    fetch(API_URL, {
+        method: 'DELETE',
+        headers: {
+            xtoken: jwt
+        }
+    })
+        .then(response => response.json())
+        .then(() => {
+            window.location.reload();
         })
-            .then(response => response.json())
-            .catch((err) => {
-                console.log(err);
-            })
+        .catch((err) => {
+            console.log(err);
+        })
 
-        window.location.reload();
-
-    })
+    
 
 }
 
-    eliminarCategoria();
-
-*/
 
 cargarDatos();
 cargarCategorias();

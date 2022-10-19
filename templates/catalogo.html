@@ -75,7 +75,7 @@
                     class="btn btn-primary mb-2 colapsar" id="addNewCategoryButton">Agregar
                     categoria</button>
                 <button data-bs-toggle="collapse" data-bs-target="#deleteCategoryFormCollapse"
-                    class="btn btn-danger mb-2 colapsar botonRojo" id="deleteCategory">Eliminar
+                    class="btn btn-danger mb-2 colapsar botonRojo" id="deleteCategoryButton">Eliminar
                     categoria</button>
 
 
@@ -131,22 +131,16 @@
                     <form id="deleteCategoryForm" method="delete">
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="nameCategory" name="nameCategory"
-                                placeholder="Nombre de la categoria">
-                            <label for="nameCategory">Nombre</label>
+                            <input type="text" class="form-control" id="nameCategoryToDelete"
+                                name="nameCategoryToDelete" placeholder="Nombre de la categoria">
+                            <label for="nameCategoryToDelete">Nombre</label>
                         </div>
 
-                        <button class="w-50 btn btn-lg btn-danger botonRojo" id="addCategory" type="submit">Eliminar </button>
+                        <button class="w-50 btn btn-lg btn-danger botonRojo" id="deleteCategory" type="button"
+                            onclick="eliminarCategoriaAux()">Eliminar </button>
                     </form>
                 </div>
             </div>
-
-            <!-- Subir/cambiar imagen de producto
-            <div class="mb-3">
-                <label for="formFile" class="form-label">Default file input example</label>
-                <input class="form-control" type="file" id="formFile">
-              </div>
-            -->
 
             <div class="text-black text-center">
                 <ul class="list-unstyled" id="categories">
