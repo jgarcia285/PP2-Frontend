@@ -2,7 +2,7 @@ const id = sessionStorage.getItem('idUser');
 
 const getUsuario = (id) => {
 
-    fetch(`http://localhost:8080/api/users/${id}`)
+    fetch(`https://hnktech.herokuapp.com/api/users/${id}`)
         .then(response => response.json())
         .then((data) => {
 
@@ -30,7 +30,7 @@ const editInfoAcc = (id) => {
         submitPass: document.querySelector('#editPass'),
     }
 
-    const API_URL = `http://localhost:8080/api/users/${id}`;
+    const API_URL = `https://hnktech.herokuapp.com/api/users/${id}`;
 
     let button = form.submitName.addEventListener("click", (e) => {
 
@@ -173,7 +173,7 @@ const deleteAcc = () => {
 
         e.preventDefault();
 
-        fetch(`http://localhost:8080/api/users/${id}`, {
+        fetch(`https://hnktech.herokuapp.com/api/users/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'

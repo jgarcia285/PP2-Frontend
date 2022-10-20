@@ -76,8 +76,6 @@ const eliminarProdCarrito = (id, n) => {
 
         }
 
-        //console.log(product);
-
       })
 
     }

@@ -6,7 +6,7 @@ const login = () => {
         submit: document.querySelector('#login')
     }
 
-    const API_URL = "http://localhost:8080/api/auth/login";
+    const API_URL = "https://hnktech.herokuapp.com/api/auth/login";
 
     let button = form.submit.addEventListener("click", (e) => {
 

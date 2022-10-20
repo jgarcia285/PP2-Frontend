@@ -225,7 +225,7 @@ const editarNombreProd = (id) => {
             confirmButtonText: 'Ok'
         })
     } else {
-        fetch(`http://localhost:8080/api/products/${id}`, {
+        fetch(`https://hnktech.herokuapp.com/api/products/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -259,7 +259,7 @@ const editarPrecioProd = (id) => {
             confirmButtonText: 'Ok'
         })
     } else {
-        fetch(`http://localhost:8080/api/products/${id}`, {
+        fetch(`https://hnktech.herokuapp.com/api/products/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -294,7 +294,7 @@ const editarStockProd = (id) => {
         })
     } else {
 
-        fetch(`http://localhost:8080/api/products/${id}`, {
+        fetch(`https://hnktech.herokuapp.com/api/products/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -329,7 +329,7 @@ const cambiarImagen = (n) => {
             let data = new FormData();
             data.append('archivo', newImageData.files[0])
 
-            let API_URL = `http://localhost:8080/api/uploads/products/${id}`
+            let API_URL = `https://hnktech.herokuapp.com/api/uploads/products/${id}`
 
             if (newImageData.value.length === 0) {
                 Swal.fire({
@@ -429,7 +429,7 @@ const agregarProducto = () => {
         submit: document.querySelector('#addProduct')
     }
 
-    const API_URL = "http://localhost:8080/api/products";
+    const API_URL = "https://hnktech.herokuapp.com/api/products";
 
     let button = form.submit.addEventListener("click", (e) => {
 
@@ -593,7 +593,7 @@ const eliminarCategoria = (id) => {
     id = id.currentTarget.myParamDelete
     const jwt = sessionStorage.getItem('jwt');
 
-    const API_URL = `http://localhost:8080/api/category/${id}`
+    const API_URL = `https://hnktech.herokuapp.com/api/category/${id}`
 
 
     fetch(API_URL, {
