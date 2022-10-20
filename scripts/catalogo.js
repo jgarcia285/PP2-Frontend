@@ -171,7 +171,7 @@ const agregarCarrito = (id) => {
                                 text: 'Ese producto ya se encuentra en el carrito',
                                 icon: 'error',
                                 confirmButtonText: 'Ok'
-                              })
+                            })
                         }
 
                     }
@@ -217,27 +217,31 @@ const editarNombreProd = (id) => {
     let name = document.querySelector(`#newNameProd${id}`);
     const jwt = sessionStorage.getItem('jwt');
 
-    fetch(`http://localhost:8080/api/products/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-            xtoken: jwt
-        },
-        body: JSON.stringify({
-            name: name.value.toUpperCase()
+    if (name.value.length === 0) {
+        Swal.fire({
+            title: 'Error!',
+            text: 'El nombre es obligatorio',
+            icon: 'error',
+            confirmButtonText: 'Ok'
         })
-    })
-        .then(response => response.json())
-        .then(data => {
-
-            window.location.href = "file:///G:/PP/Frontend/templates/catalogo.html"
-
+    } else {
+        fetch(`http://localhost:8080/api/products/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                xtoken: jwt
+            },
+            body: JSON.stringify({
+                name: name.value.toUpperCase()
+            })
         })
-        .catch((err) => {
-            console.log(err);
+            .then(response => response.json())
+            .then(data => {
 
-        })
+                window.location.href = "file:///G:/PP/Frontend/templates/catalogo.html"
 
+            })
+    }
 
 }
 
@@ -247,27 +251,31 @@ const editarPrecioProd = (id) => {
     let prize = document.querySelector(`#newPrizeProd${id}`);
     const jwt = sessionStorage.getItem('jwt');
 
-    fetch(`http://localhost:8080/api/products/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-            xtoken: jwt
-        },
-        body: JSON.stringify({
-            prize: prize.value
+    if (prize.value.length === 0) {
+        Swal.fire({
+            title: 'Error!',
+            text: 'El precio es obligatorio',
+            icon: 'error',
+            confirmButtonText: 'Ok'
         })
-    })
-        .then(response => response.json())
-        .then(data => {
-
-            window.location.href = "file:///G:/PP/Frontend/templates/catalogo.html"
-
+    } else {
+        fetch(`http://localhost:8080/api/products/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                xtoken: jwt
+            },
+            body: JSON.stringify({
+                prize: prize.value
+            })
         })
-        .catch((err) => {
-            console.log(err);
+            .then(response => response.json())
+            .then(data => {
 
-        })
+                window.location.href = "file:///G:/PP/Frontend/templates/catalogo.html"
 
+            })
+    }
 
 }
 
@@ -277,26 +285,32 @@ const editarStockProd = (id) => {
     let stock = document.querySelector(`#newStockProd${id}`);
     const jwt = sessionStorage.getItem('jwt');
 
-    fetch(`http://localhost:8080/api/products/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-            xtoken: jwt
-        },
-        body: JSON.stringify({
-            stock: stock.value
+    if (stock.value.length === 0) {
+        Swal.fire({
+            title: 'Error!',
+            text: 'El stock es obligatorio',
+            icon: 'error',
+            confirmButtonText: 'Ok'
         })
-    })
-        .then(response => response.json())
-        .then(data => {
+    } else {
 
-            window.location.href = "file:///G:/PP/Frontend/templates/catalogo.html"
-
+        fetch(`http://localhost:8080/api/products/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                xtoken: jwt
+            },
+            body: JSON.stringify({
+                stock: stock.value
+            })
         })
-        .catch((err) => {
-            console.log(err);
+            .then(response => response.json())
+            .then(data => {
 
-        })
+                window.location.href = "file:///G:/PP/Frontend/templates/catalogo.html"
+
+            })
+    }
 
 }
 
@@ -317,35 +331,32 @@ const cambiarImagen = (n) => {
 
             let API_URL = `http://localhost:8080/api/uploads/products/${id}`
 
-            changeImageButton.addEventListener('click',
-
-                fetch(API_URL, {
-                    method: 'PUT',
-                    headers: {
-                        xtoken: jwt
-                    },
-                    body: data
+            if (newImageData.value.length === 0) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'No hay imagen que subir',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
                 })
-                    .then(response => response.json())
-                    .then(data => {
-
-                        window.location.href = "file:///G:/PP/Frontend/templates/catalogo.html"
-
-                    })
-                    .catch((err) => {
-                        console.log(err);
-
-                    })
-
-            )
-
-            /*
-            if(changeImageButton.value){
-                console.log(API_URL)
             } else {
-                console.log('nao nao manito')
+
+                changeImageButton.addEventListener('click',
+
+                    fetch(API_URL, {
+                        method: 'PUT',
+                        headers: {
+                            xtoken: jwt
+                        },
+                        body: data
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+
+                            window.location.href = "file:///G:/PP/Frontend/templates/catalogo.html"
+                        })
+                )
+
             }
-            */
 
         }
     });
@@ -426,30 +437,84 @@ const agregarProducto = () => {
 
         const jwt = sessionStorage.getItem('jwt');
 
-        fetch(API_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                xtoken: jwt
-            },
-            body: JSON.stringify({
-                name: form.name.value,
-                prize: form.prize.value,
-                category: form.category.value,
-                stock: form.stock.value,
-                img: 'https://res.cloudinary.com/dkfd0chui/image/upload/v1666065995/svmb7pqhbvjkzwkwumch.jpg'
+        if (form.name.value.length === 0) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'El nombre es obligatorio',
+                icon: 'error',
+                confirmButtonText: 'Ok'
             })
-        })
-            .then(response => response.json())
-            .then(data => {
-
-                window.location.href = "file:///G:/PP/Frontend/templates/catalogo.html"
-
+        } else if (form.prize.value.length === 0) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'El precio es obligatorio',
+                icon: 'error',
+                confirmButtonText: 'Ok'
             })
-            .catch((err) => {
-                console.log(err);
-
+        } else if (form.category.value.length === 0) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'La categoria es obligatoria',
+                icon: 'error',
+                confirmButtonText: 'Ok'
             })
+        } else if (form.stock.value.length === 0) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'El stock es obligatorio',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
+        } else {
+
+            fetch(API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    xtoken: jwt
+                },
+                body: JSON.stringify({
+                    name: form.name.value,
+                    prize: form.prize.value,
+                    category: form.category.value,
+                    stock: form.stock.value,
+                    img: 'https://res.cloudinary.com/dkfd0chui/image/upload/v1666065995/svmb7pqhbvjkzwkwumch.jpg'
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+
+                    console.log(data)
+
+                    if (data.msg) {
+
+                        if (data.msg === 'La categoria no es valida') {
+                            Swal.fire({
+                                title: 'Error!',
+                                text: 'La categoria no es valida',
+                                icon: 'error',
+                                confirmButtonText: 'Ok'
+                            })
+                        } else {
+                            Swal.fire({
+                                title: 'Error!',
+                                text: `El producto ${form.name.value} ya existe`,
+                                icon: 'error',
+                                confirmButtonText: 'Ok'
+                            })
+                        }
+
+                    } else {
+
+                        window.location.href = "file:///G:/PP/Frontend/templates/catalogo.html"
+
+                    }
+
+                })
+
+        }
+
+
     })
 }
 
@@ -467,33 +532,35 @@ const agregarCategoria = () => {
 
         const jwt = sessionStorage.getItem('jwt');
 
-        fetch(API_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'xtoken': jwt
-            },
-            body: JSON.stringify({
-                name: name.value
+        if (name.value.length === 0) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Debe ingresar una categoria',
+                icon: 'error',
+                confirmButtonText: 'Ok'
             })
-        })
-            .then(response => response.json())
-            .then(data => {
+        } else {
 
-                if (name.value) {
+            fetch(API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'xtoken': jwt
+                },
+                body: JSON.stringify({
+                    name: name.value
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+
+
                     window.location.reload();
-                } else {
-                    Swal.fire({
-                        title: 'Error!',
-                        text: 'Debe ingresar una categoria',
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                      })
-                }
-            })
-            .catch((err) => {
-                console.log(err);
-            })
+
+                })
+
+        }
+
     })
 
 }

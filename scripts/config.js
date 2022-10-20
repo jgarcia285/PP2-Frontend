@@ -36,27 +36,35 @@ const editInfoAcc = (id) => {
 
         e.preventDefault();
 
-        fetch(API_URL, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: form.name.value
+        if (form.name.value.length === 0) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'El nombre es obligatorio',
+                icon: 'error',
+                confirmButtonText: 'Ok'
             })
-        })
-            .then(response => response.json())
-            .then(data => {
-                nameUser = sessionStorage.setItem('nameUser', data.user.name)
 
-                getUsuario(id);
+        } else {
 
-                window.location.reload();
-
+            fetch(API_URL, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: form.name.value
+                })
             })
-            .catch((err) => {
-                console.log(err);
-            })
+                .then(response => response.json())
+                .then(data => {
+                    nameUser = sessionStorage.setItem('nameUser', data.user.name)
+
+                    getUsuario(id);
+
+                    window.location.reload();
+
+                })
+        }
 
 
     })
@@ -65,53 +73,94 @@ const editInfoAcc = (id) => {
 
         e.preventDefault();
 
-        fetch(API_URL, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                email: form.email.value
+        if (form.email.value.length === 0) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'El correo es obligatorio',
+                icon: 'error',
+                confirmButtonText: 'Ok'
             })
-        })
-            .then(response => response.json())
-            .then(data => {
-                emailUser = sessionStorage.setItem('emailUser', data.user.email);
-
-                getUsuario(id);
-
-                window.location.reload();
-
+        } else if (!/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i.test(form.email.value)) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'El correo no es valido',
+                icon: 'error',
+                confirmButtonText: 'Ok'
             })
-            .catch((err) => {
-                console.log(err);
 
+
+        } else {
+
+            fetch(API_URL, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: form.email.value
+                })
             })
+                .then(response => response.json())
+                .then(data => {
+
+                    if (data.errors) {
+
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'El correo ya esta registrado',
+                            icon: 'error',
+                            confirmButtonText: 'Ok'
+                        })
+
+                    } else {
+
+                        emailUser = sessionStorage.setItem('emailUser', data.user.email);
+
+                        getUsuario(id);
+
+                        window.location.reload();
+
+                    }
+
+                })
+
+        }
     })
 
     let button3 = form.submitPass.addEventListener("click", (e) => {
 
         e.preventDefault();
 
-        fetch(API_URL, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                pass: form.pass.value
+        if (form.name.value.length === 0) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'El nombre es obligatorio',
+                icon: 'error',
+                confirmButtonText: 'Ok'
             })
-        })
-            .then(response => response.json())
-            .then(data => {
-                getUsuario(id);
+        } else {
 
-                window.location.reload();
+            fetch(API_URL, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    pass: form.pass.value
+                })
             })
-            .catch((err) => {
-                console.log(err);
+                .then(response => response.json())
+                .then(data => {
 
-            })
+                    nameUser = sessionStorage.setItem('nameUser', data.user.name)
+
+                    getUsuario(id);
+
+                    window.location.reload();
+
+                })
+        }
+
     })
 
 }
