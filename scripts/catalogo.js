@@ -73,7 +73,7 @@ const cargarDatos = async () => {
                     HTMLResponse.innerHTML += template.join('');
 
                 })
-        } else {
+        } else if (rolAlmacenado === 'USER_ROLE') {
 
             let i = 1;
 
@@ -97,8 +97,31 @@ const cargarDatos = async () => {
                     HTMLResponse.innerHTML += template.join('');
 
                 })
-        }
+        } else {
 
+            fetch("https://hnktech.herokuapp.com/api/products")
+                .then(response => response.json())
+                .then((res) => {
+                    const template = res.products.map((product) =>
+                    (`<span class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-3" id='${product.category.name}' data-id="${i}">
+                        <div class="card border-2 text-black">
+                            <a href="#" class="productos">
+                                <div id="nameProd" data-info="${product.name}">${product.name}</div>
+                                <div id="prizeProd" data-info="${product.prize}">$${product.prize}</div>
+                                <div id="stockProd" data-info="${product.stock}">Stock: ${product.stock}</div>
+                                <div id="imageProd" data-info="${product.img}"><img src="${product.img}" class="img-fluid" alt="${product.name}"></img></div>
+                            </a>
+                            <button type="button" class="btn btn-outline-primary" id="${i}" onclick="agregarCarrito(${i++})">Agregar al carrito</button>
+                        </div>
+                    </span>
+                    `))
+
+                    HTMLResponse.innerHTML += template.join('');
+
+                })
+
+
+        }
     } catch (err) {
         console.log(err);
     }
@@ -238,7 +261,7 @@ const editarNombreProd = (id) => {
             .then(response => response.json())
             .then(data => {
 
-                window.location.href = "file:///G:/PP/Frontend/templates/catalogo.html"
+                window.location.href = "catalogo.html"
 
             })
     }
@@ -272,7 +295,7 @@ const editarPrecioProd = (id) => {
             .then(response => response.json())
             .then(data => {
 
-                window.location.href = "file:///G:/PP/Frontend/templates/catalogo.html"
+                window.location.href = "catalogo.html"
 
             })
     }
@@ -307,7 +330,7 @@ const editarStockProd = (id) => {
             .then(response => response.json())
             .then(data => {
 
-                window.location.href = "file:///G:/PP/Frontend/templates/catalogo.html"
+                window.location.href = "catalogo.html"
 
             })
     }
@@ -352,7 +375,7 @@ const cambiarImagen = (n) => {
                         .then(response => response.json())
                         .then(data => {
 
-                            window.location.href = "file:///G:/PP/Frontend/templates/catalogo.html"
+                            window.location.href = "catalogo.html"
                         })
                 )
 
@@ -506,7 +529,7 @@ const agregarProducto = () => {
 
                     } else {
 
-                        window.location.href = "file:///G:/PP/Frontend/templates/catalogo.html"
+                        window.location.href = "catalogo.html"
 
                     }
 

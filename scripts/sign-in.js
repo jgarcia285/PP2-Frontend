@@ -69,7 +69,7 @@ const signIn = () => {
 
                     } else {
 
-                        window.location.href = "file:///G:/PP/Frontend/templates/login.html";
+                        window.location.href = "login.html";
                     }
 
                 })

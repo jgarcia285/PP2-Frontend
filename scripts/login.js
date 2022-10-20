@@ -81,7 +81,7 @@ const login = () => {
                         autenticated = true;
                         sessionStorage.setItem("auth", autenticated);
 
-                        window.location.href = "file:///G:/PP/Frontend/index.html"
+                        window.location.href = "index.html"
                     }
 
                 })

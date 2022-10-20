@@ -189,7 +189,7 @@ const deleteAcc = () => {
 
         let autenticated = false;
         sessionStorage.setItem("auth", autenticated);
-        window.location.href = "file:///G:/PP/Frontend/index.html";
+        window.location.href = "index.html";
 
     })
 
