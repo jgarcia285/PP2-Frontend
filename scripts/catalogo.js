@@ -30,7 +30,7 @@ const cargarDatos = async () => {
                                 <div><img src="${product.img}" class="img-fluid" alt="${product.name}"></img></div>
                             </a>
                             <button data-bs-toggle="collapse" data-bs-target="#editInfoCollapse" class="btn btn-outline-primary" id="editInfoProd">Editar informacion</button>
-                            <button data-bs-toggle="collapse" data-bs-target="#changeImageCollapse" class="btn btn-outline-primary" id="addImageProd">Agregar imagen</button>
+                            <button data-bs-toggle="collapse" data-bs-target="#changeImageCollapse" class="btn btn-outline-primary" id="addImageProd">Cambiar imagen</button>
 
                             <div id="editInfoCollapse" class="collapse">
                                 <form id="editInfoProdForm" method="put">
