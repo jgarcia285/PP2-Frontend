@@ -15,7 +15,8 @@ const logout = () => {
 
         let autenticated = false;
         sessionStorage.setItem("auth", autenticated);
-        localStorage.clear('carrito');
+        sessionStorage.setItem("rol", 'USER_ROLE')
+        localStorage.clear("carrito");
         window.location.href = "index.html"
     })
 

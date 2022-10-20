@@ -80,6 +80,7 @@ const login = () => {
 
                         autenticated = true;
                         sessionStorage.setItem("auth", autenticated);
+                        localStorage.removeItem('carrito')
 
                         window.location.href = "index.html"
                     }

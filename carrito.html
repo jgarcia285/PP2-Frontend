@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>HNK Tech</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/style/style.css">
+</head>
+
+<body>
+
+  <header class="navbar py-2 bg-light border-bottom">
+    <div class="container-fluid d-flex flex-wrap justify-content-between">
+      <a class="navbar-brand fs-3 text-primary col-lg-auto me-lg-auto mb-2 mb-md-0" href="index.html">HNK Tech</a>
+
+      <div id="navbar01">
+        <ul class="nav text-end">
+          <li class="nav-item"><a href="login.html" class="nav-link link-dark px-2">Iniciar sesion</a></li>
+          <li class="nav-item"><a href="registro.html" class="nav-link link-dark px-2">Registrarse</a></li>
+        </ul>
+      </div>
+
+
+      <div id="navbar02">
+        <ul class="nav text-end">
+          <li class="nav-item"><a href="config.html" class="nav-link link-dark px-2">Configuracion</a></li>
+          <li class="nav-item" id="logout"><a href="#" class="nav-link link-dark px-2">Cerrar sesion</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+  </header>
+  <nav class="py-3 mb-4 border-bottom bg-primary">
+    <div class="container-fluid d-flex flex-wrap justify-content-between">
+      <ul class="nav me-auto mb-2 mb-lg-0 fs-4">
+        <li class="nav-item">
+          <a class="nav-link text-light" href="index.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="catalogo.html" role="button">
+            Catalogo
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="contacto.html">Contacto</a>
+        </li>
+      </ul>
+      <ul class="nav">
+        <li class="nav-item text-end">
+          <a class="nav-link text-light fs-4" href="carrito.html">Carrito <img src="assets/images/carrito.png"
+              alt="carrito" class="img-fluid"></a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <main id="carritoVacio">
+    <div class="container-fluid fs-4 m-3" id="carritoLleno">
+      <h3 class="text-center text-primary">Carrito de compras</h3>
+      <div class="row">
+        <div class="col-10 col-sm-12 col-md-10 col-lg-12 col-xl-12">
+          <div class="row">
+            <p class="col">Productos</p>
+            <p class="col-sm-3 col-md-1 col-2 col-lg-2 col-xl-2">Precio</p>
+          </div>
+          <div class="row" id="carrito">
+
+          </div>
+
+          <a class="productos text-primary" href="catalogo.html">Agregar mas productos</a>
+          <div class="mt-4">
+            <a href="catalogo.html"> <button class="btn btn-lg btn-danger botonRojo" type="submit">Cancelar</button></a>
+            <a href="pago.html"> <button class="btn btn-lg btn-primary" type="submit">Pagar</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="d-flex flex-wrap justify-content-between align-items-end py-3 border-top bg-primary">
+    <div>
+      <a href="nosotros.html" class="nav-link fs-4 text-light">Quienes Somos</a>
+      <a href="legales.html" class="nav-link fs-4 text-light">Terminos y Condiciones</a>
+    </div>
+
+    <ul class="nav align-items-center">
+      <li class="nav-item">
+        <p class="mb-2 fs-4 px-2 text-light">Redes Sociales</p>
+      </li>
+      <li class="nav-item"><a href="#" class="fa fa-instagram"></a></li>
+      <li class="nav-item"><a href="#" class="fa fa-facebook"></a></li>
+    </ul>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+  <script src="scripts/render.js"></script>
+  <script src="scripts/logout.js"></script>
+  <script src="scripts/carrito.js"></script>
+
+</body>
+
+</html>
