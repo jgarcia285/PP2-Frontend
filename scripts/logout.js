@@ -4,7 +4,7 @@ const logout = () => {
         submit: document.querySelector('#logout')
     }
 
-    const API_URL = "https://hnktech.herokuapp.com/api/auth/logout";
+    const API_URL = "https://hnktechdb.onrender.com/api/auth/logout";
 
     let button = form.submit.addEventListener("click", (e) => {
 

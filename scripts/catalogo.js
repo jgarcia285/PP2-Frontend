@@ -16,7 +16,7 @@ const cargarDatos = async () => {
             document.querySelector('#addNewCategoryButton').style.display = 'initial';
             document.querySelector('#deleteCategoryButton').style.display = 'initial';
 
-            fetch("https://hnktech.herokuapp.com/api/products")
+            fetch("https://hnktechdb.onrender.com/api/products")
                 .then(response => response.json())
                 .then((res) => {
                     const template = res.products.map((product) =>
@@ -77,7 +77,7 @@ const cargarDatos = async () => {
 
             let i = 1;
 
-            fetch("https://hnktech.herokuapp.com/api/products")
+            fetch("https://hnktechdb.onrender.com/api/products")
                 .then(response => response.json())
                 .then((res) => {
                     const template = res.products.map((product) =>
@@ -224,7 +224,7 @@ const editarNombreProd = (id) => {
             confirmButtonText: 'Ok'
         })
     } else {
-        fetch(`https://hnktech.herokuapp.com/api/products/${id}`, {
+        fetch(`https://hnktechdb.onrender.com/api/products/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -258,7 +258,7 @@ const editarPrecioProd = (id) => {
             confirmButtonText: 'Ok'
         })
     } else {
-        fetch(`https://hnktech.herokuapp.com/api/products/${id}`, {
+        fetch(`https://hnktechdb.onrender.com/api/products/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -293,7 +293,7 @@ const editarStockProd = (id) => {
         })
     } else {
 
-        fetch(`https://hnktech.herokuapp.com/api/products/${id}`, {
+        fetch(`https://hnktechdb.onrender.com/api/products/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -328,7 +328,7 @@ const cambiarImagen = (n) => {
             let data = new FormData();
             data.append('archivo', newImageData.files[0])
 
-            let API_URL = `https://hnktech.herokuapp.com/api/uploads/products/${id}`
+            let API_URL = `https://hnktechdb.onrender.com/api/uploads/products/${id}`
 
             if (newImageData.value.length === 0) {
                 Swal.fire({
@@ -371,7 +371,7 @@ const cargarCategorias = async () => {
 
     try {
 
-        fetch("https://hnktech.herokuapp.com/api/category")
+        fetch("https://hnktechdb.onrender.com/api/category")
             .then(response => response.json())
             .then((res) => {
                 const template = res.categories.map((category) =>
@@ -428,7 +428,7 @@ const agregarProducto = () => {
         submit: document.querySelector('#addProduct')
     }
 
-    const API_URL = "https://hnktech.herokuapp.com/api/products";
+    const API_URL = "https://hnktechdb.onrender.com/api/products";
 
     let button = form.submit.addEventListener("click", (e) => {
 
@@ -523,7 +523,7 @@ const agregarCategoria = () => {
 
     const submit = document.querySelector('#addCategory')
 
-    const API_URL = "https://hnktech.herokuapp.com/api/category";
+    const API_URL = "https://hnktechdb.onrender.com/api/category";
 
     let button = submit.addEventListener("click", (e) => {
 
@@ -592,7 +592,7 @@ const eliminarCategoria = (id) => {
     id = id.currentTarget.myParamDelete
     const jwt = sessionStorage.getItem('jwt');
 
-    const API_URL = `https://hnktech.herokuapp.com/api/category/${id}`
+    const API_URL = `https://hnktechdb.onrender.com/api/category/${id}`
 
 
     fetch(API_URL, {

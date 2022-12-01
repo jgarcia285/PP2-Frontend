@@ -8,7 +8,7 @@ const signIn = () => {
         submit: document.querySelector('#signin')
     }
 
-    const API_URL = "https://hnktech.herokuapp.com/api/users";
+    const API_URL = "https://hnktechdb.onrender.com/api/users";
 
     let button = form.submit.addEventListener("click", (e) => {
 
